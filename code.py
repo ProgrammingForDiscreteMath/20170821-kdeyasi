@@ -7,7 +7,16 @@ L = [ for i in range(10)]
 def is_prime(n):
     """
     Test if ``n`` is a prime.
+    
+    Return True is the given number is prime else return False
     """
+    t = 2
+    while n % t != 0 or t < n ** 0.5:
+        t += 1
+    if t == n:
+        return True
+    else:
+        return False
 
 # Tests
 # is_prime(2033) == False
@@ -20,8 +29,13 @@ def next_ten_primes(n):
     """
     Return the list of the first ten prime numbers greate than or equal to n
 
-    
     """
+    primes = []
+    while len(primes) < 10:
+        if is_prime(n) == True:
+            primes.append(n)
+        n += 1
+    return primes
 
 
 # Tests
